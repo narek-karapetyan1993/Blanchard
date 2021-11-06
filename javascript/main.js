@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   $(document).ready(function () {
     $("#menu").on("click", "a", function (event) {
       event.preventDefault();
@@ -8,6 +7,36 @@ document.addEventListener("DOMContentLoaded", function () {
       $("body,html").animate({ scrollTop: top }, 1500);
     });
   });
+
+  document
+    .querySelector(".header__burger")
+    .addEventListener("click", function () {
+      document
+        .querySelector(".header__burger")
+        .classList.toggle("header__burger-active");
+      document
+        .querySelector(".header__nav")
+        .classList.toggle("header__nav-active");
+      document
+        .querySelector(".header__login")
+        .classList.toggle("header__login-active");
+    });
+
+  document
+    .querySelector(".header__search-x-btn")
+    .addEventListener("click", function () {
+      document
+        .querySelector(".header__search-form")
+        .classList.remove("header__search-form-active");
+    });
+
+  document
+    .querySelector(".header__search")
+    .addEventListener("click", function () {
+      document
+        .querySelector(".header__search-form")
+        .classList.add("header__search-form-active");
+    });
 
   document
     .querySelectorAll(".header__select-heading")
@@ -78,10 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const gallerySwiper = new Swiper(".swiper1", {
     autoHeight: true,
-    slidesPerGroup: 3,
-    slidesPerView: 3,
-    slidesPerColumn: 2,
-    spaceBetween: 50,
     initialSlide: 7,
 
     navigation: {
@@ -95,11 +120,42 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     breakpoints: {
-      1024: {},
+      1920: {
+        slidesPerGroup: 3,
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+        },
+        spaceBetween: 50,
+      },
 
-      768: {},
+      1024: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        grid: {
+          rows: 2,
+        },
+        spaceBetween: 34,
+      },
 
-      320: {},
+      768: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        grid: {
+          rows: 2,
+        },
+        spaceBetween: 30,
+      },
+
+      320: {
+        slidesPerGroup: 1,
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+        },
+        spaceBetween: 30,
+        initialSlide: 14,
+      },
     },
   });
 
@@ -181,13 +237,92 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const eventSwiperParametr = new Swiper(".event_swiper", {
+    pagination: {
+      el: ".event__swiper-pagination",
+    },
+
+    breakpoints: {
+      1920: {
+        allowTouchMove: false,
+      },
+
+      1024: {
+        allowTouchMove: false,
+      },
+
+      768: {
+        allowTouchMove: false,
+      },
+
+      320: {
+        loop: true,
+        allowTouchMove: true,
+        slidesPerGroup: 1,
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+        },
+        spaceBetween: 30,
+      },
+    },
+  });
+
+  const publicationBtn = document.querySelector(".editions__checkbox-heading");
+  const publicationFormLabel = document.querySelectorAll(
+    ".editions__checkbox-label"
+  );
+  const publicationFormInput = document.querySelectorAll(
+    ".editions__checkbox-input"
+  );
+  const publicationBtnArrow = document.querySelector(
+    ".editions__checkbox-heading-icon"
+  );
+
+  const showActiveCheckbox = () => {
+    publicationFormInput.forEach((el) => {
+      if (el.checked === true) {
+        el.parentNode.classList.add("active_label");
+      }
+    });
+  };
+
+  const publicationAccordion = () => {
+    publicationBtn.addEventListener("click", () => {
+      publicationBtnArrow.classList.toggle("arrow-icon-active");
+      publicationFormLabel.forEach((el) => {
+        el.classList.toggle("active_label");
+        showActiveCheckbox();
+      });
+    });
+  };
+
+  publicationAccordion();
+
+  const publicationCheck = () => {
+    for (let i = 0; i < publicationFormInput.length; i++) {
+      const el = publicationFormInput[i];
+      el.addEventListener("change", () => {
+        if (
+          !el.checked &&
+          !publicationBtnArrow.classList.contains("arrow-icon-active")
+        ) {
+          el.parentNode.classList.remove("active_label");
+        }
+
+        showActiveCheckbox();
+      });
+    }
+
+    showActiveCheckbox();
+  };
+
+  publicationCheck();
+
   const editionsySwiper = new Swiper(".swiper2", {
     autoHeight: true,
-    slidesPerGroup: 3,
-    slidesPerView: 3,
-    slidesPerColumn: 1,
-    spaceBetween: 50,
     initialSlide: 0,
+    spaceBetween: 50,
 
     navigation: {
       nextEl: ".swiper-button-next2",
@@ -200,19 +335,38 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     breakpoints: {
-      1024: {},
+      1920: {
+        slidesPerGroup: 3,
+        slidesPerView: 3,
+        slidesPerColumn: 1,
+      },
 
-      768: {},
+      1024: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        slidesPerColumn: 1,
+      },
 
-      320: {},
+      768: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        slidesPerColumn: 1,
+        spaceBetween: 34,
+      },
+
+      320: {
+        slidesPerGroup: 7,
+        slidesPerView: 7,
+        grid: {
+          rows: 4,
+        },
+        spaceBetween: 30,
+      },
     },
   });
 
   const projectssySwiper = new Swiper(".swiper3", {
-    loop: true,
     autoHeight: true,
-    slidesPerGroup: 3,
-    slidesPerView: 3,
     slidesPerColumn: 1,
     spaceBetween: 50,
     initialSlide: 0,
@@ -223,11 +377,25 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     breakpoints: {
-      1024: {},
+      1920: {
+        slidesPerGroup: 3,
+        slidesPerView: 3,
+      },
 
-      768: {},
+      1024: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+      },
 
-      320: {},
+      768: {
+        spaceBetween: 34,
+      },
+
+      320: {
+        slidesPerGroup: 1,
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
     },
   });
 
@@ -257,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ymaps.ready(init);
   function init() {
     let myMap = new ymaps.Map("map", {
-      center: [55.760748, 37.64083],
+      center: [55.758463, 37.601079],
       zoom: 14,
     });
 
@@ -274,6 +442,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     myMap.geoObjects.add(myPlacemark);
   }
-
-
 });
