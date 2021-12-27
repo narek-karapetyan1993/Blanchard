@@ -186,12 +186,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   let gallerySelects = document.querySelector(".choices__item--selectable");
-  let galleryBlock = document.querySelector(".gallery__content")
+  let galleryBlock = document.querySelector(".gallery__content");
   gallerySelects.addEventListener("click", function () {
     galleryBlock.classList.toggle("gallery__content-active");
   });
 
   const gallerySwiper = new Swiper(".gallery__swiper", {
+    a11y: {
+      nextSlideMessage: "Следующая группа картин",
+      prevSlideMessage: "Предыдущая группа картин",
+      slideLabelMessage: "'{{index}} из {{slidesLength}} картин'"
+    },
+
     navigation: {
       nextEl: ".gallery__swiper-btn-next",
       prevEl: ".gallery__swiper-btn-prev",
@@ -344,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       slider.dataset.mobile = "true";
-    };
+    }
 
     if (window.innerWidth > 620 && slider.dataset.mobile == "true") {
       slider.dataset.mobile = "false";
@@ -420,6 +426,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function desctopSlider() {
     if (window.innerWidth >= 620 && editionSlider.dataset.mobile == "true") {
       editionsSwiper = new Swiper(editionSlider, {
+        a11y: {
+          nextSlideMessage: "Следующая группа изданий",
+          prevSlideMessage: "Предыдущая группа изданий",
+          slideLabelMessage: "'{{index}} из {{slidesLength}} изданий'"
+        },
 
         navigation: {
           nextEl: ".edition__swiper-btn-next",
@@ -471,15 +482,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       editionSlider.dataset.mobile = "false";
-    };
+    }
 
     if (window.innerWidth <= 620 && editionSlider.dataset.mobile == "false") {
       editionSlider.dataset.mobile = "true";
       if (editionSlider.classList.contains("swiper-initialized")) {
         editionsSwiper.destroy();
       }
-    };
-  };
+    }
+  }
 
   desctopSlider();
 
@@ -487,49 +498,14 @@ document.addEventListener("DOMContentLoaded", function () {
     desctopSlider();
   });
 
-  document
-    .querySelectorAll(".projects__description-tooltip-marker")
-    .forEach((item) => {
-      item.addEventListener("click", function () {
-        let tooltipBtn = this;
-        let tooltip = this.parentElement.querySelector(
-          ".projects__description-tooltip-popup"
-        );
-
-        document
-          .querySelectorAll(".projects__description-tooltip-marker")
-          .forEach((el) => {
-            if (el != tooltipBtn) {
-              el.classList.remove("projects__tooltip-marker-active");
-            }
-          });
-
-        document
-          .querySelectorAll(".projects__description-tooltip-popup")
-          .forEach((el) => {
-            if (el != tooltip) {
-              el.classList.remove("projects__tooltip-popup-active");
-            }
-          });
-        tooltip.classList.toggle("projects__tooltip-popup-active");
-        tooltipBtn.classList.toggle("projects__tooltip-marker-active");
-      });
-    });
-
-  document.addEventListener("click", function (e) {
-    let target = e.target;
-    if (!target.closest(".projects__description-tooltip")) {
-      document
-        .querySelectorAll(".projects__description-tooltip-popup")
-        .forEach((el) => {
-          el.classList.remove("projects__tooltip-popup-active");
-        });
-      document
-        .querySelectorAll(".projects__description-tooltip-marker")
-        .forEach((el) => {
-          el.classList.remove("projects__tooltip-marker-active");
-        });
-    }
+  tippy(".projects__description-tooltip-marker", {
+    content(reference) {
+      let id = reference.getAttribute("data-template");
+      let template = document.getElementById(id);
+      return template.innerHTML;
+    },
+    allowHTML: true,
+    theme: "purple",
   });
 
   const projectsSwiper = new Swiper(".projects__swiper", {
@@ -539,6 +515,12 @@ document.addEventListener("DOMContentLoaded", function () {
       rows: 1,
     },
     spaceBetween: 30,
+
+    a11y: {
+      nextSlideMessage: "Следующая группа партнёров",
+      prevSlideMessage: "Предыдущая группа партнёров",
+      slideLabelMessage: "'{{index}} из {{slidesLength}} партнёров'"
+    },
 
     navigation: {
       nextEl: ".projects__swiper-btn-next",
@@ -626,4 +608,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     myMap.geoObjects.add(myPlacemark);
   }
+
 });
