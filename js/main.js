@@ -198,6 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
       slideLabelMessage: "'{{index}} из {{slidesLength}} картин'"
     },
 
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     navigation: {
       nextEl: ".gallery__swiper-btn-next",
       prevEl: ".gallery__swiper-btn-prev",
@@ -217,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         spaceBetween: 30,
       },
-      620: {
+      650: {
         slidesPerView: 2,
         slidesPerGroup: 2,
         grid: {
@@ -227,8 +232,8 @@ document.addEventListener("DOMContentLoaded", function () {
       },
 
       1300: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
         grid: {
           rows: 2,
         },
@@ -320,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let allitems = document.querySelectorAll(".events__slide");
   eventsBtn.addEventListener("click", function () {
     allitems.forEach((item) => {
-      item.style.display = "block";
+      item.style.display = "flex";
     });
 
     this.style.display = "none";
@@ -329,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let eventsSwiper;
 
   function mobileSlider() {
-    if (window.innerWidth <= 620 && slider.dataset.mobile == "false") {
+    if (window.innerWidth <= 650 && slider.dataset.mobile == "false") {
       allitems.forEach((item) => {
         item.classList.add("events__slide-active");
       });
@@ -352,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
       slider.dataset.mobile = "true";
     }
 
-    if (window.innerWidth > 620 && slider.dataset.mobile == "true") {
+    if (window.innerWidth > 650 && slider.dataset.mobile == "true") {
       slider.dataset.mobile = "false";
       allitems.forEach((item) => {
         item.classList.remove("events__slide-active");
@@ -424,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let editionsSwiper;
 
   function desctopSlider() {
-    if (window.innerWidth >= 620 && editionSlider.dataset.mobile == "true") {
+    if (window.innerWidth >= 650 && editionSlider.dataset.mobile == "true") {
       editionsSwiper = new Swiper(editionSlider, {
         a11y: {
           nextSlideMessage: "Следующая группа изданий",
@@ -452,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
             spaceBetween: 34,
           },
 
-          620: {
+          650: {
             slidesPerView: 2,
             slidesPerGroup: 2,
             grid: {
@@ -484,7 +489,7 @@ document.addEventListener("DOMContentLoaded", function () {
       editionSlider.dataset.mobile = "false";
     }
 
-    if (window.innerWidth <= 620 && editionSlider.dataset.mobile == "false") {
+    if (window.innerWidth <= 650 && editionSlider.dataset.mobile == "false") {
       editionSlider.dataset.mobile = "true";
       if (editionSlider.classList.contains("swiper-initialized")) {
         editionsSwiper.destroy();
@@ -536,7 +541,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         spaceBetween: 34,
       },
-      620: {
+      650: {
         slidesPerView: 2,
         slidesPerGroup: 2,
         grid: {
@@ -546,6 +551,15 @@ document.addEventListener("DOMContentLoaded", function () {
       },
 
       992: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        grid: {
+          rows: 1,
+        },
+        spaceBetween: 50,
+      },
+
+      1200: {
         slidesPerView: 3,
         slidesPerGroup: 3,
         grid: {

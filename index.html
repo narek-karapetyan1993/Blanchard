@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="./css/media.css">
   <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
+  <script defer src="./js/inputmask.min.js"></script>
+  <script defer src="./js/just-validate.min.js"></script>
+  <script defer src="./js/tippy-core.js"></script>
+  <script defer src="./js/tippy.js"></script>
+  <script defer src="./js/jquery-1.12.4.js"></script>
+  <script defer src="./js/jquery-ui.js"></script>
+  <script defer src="./js/choices.min.js"></script>
+  <script defer src="./js/swiper-bundle.min.js"></script>
+  <script defer src="./js/simplebar.min.js"></script>
+  <script defer src="./js/main.js"></script>
   <title>Blanchard</title>
 </head>
 
@@ -182,7 +193,7 @@
                     fill="white" />
                 </svg>
               </button>
-              <form action="#" class="header__search-form">
+              <form action="/" class="header__search-form">
                 <button type="submit" class="header__search-form-btn" aria-label="поиск по сайту">
                   <svg width="23" height="22" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="6.8678" height="1.71695"
@@ -431,7 +442,9 @@
             <div class="gallery__filter-description">
               <p class="gallery__filter-description-text text">
                 Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href=""
-                  class="gallery__filter-description-link" aria-label="авторизуйтесь для увеличения количества скачиваний ">авторизуйтесь,</a> либо воспользуйтесь лицензией.
+                  class="gallery__filter-description-link"
+                  aria-label="авторизуйтесь для увеличения количества скачиваний ">авторизуйтесь,</a> либо
+                воспользуйтесь лицензией.
               </p>
             </div>
 
@@ -441,180 +454,158 @@
             <div class="swiper gallery__swiper ">
 
               <div class="gallery__swiper-btns">
-                <button class="gallery__swiper-btn swiper-btn gallery__swiper-btn-prev swiper-btn-prev" aria-label="Предыдущая групповая слайда"></button>
+                <button class="gallery__swiper-btn swiper-btn gallery__swiper-btn-prev swiper-btn-prev"
+                  aria-label="Предыдущая групповая слайда"></button>
                 <div class="gallery__swiper-pagination"></div>
-                <button class="gallery__swiper-btn swiper-btn gallery__swiper-btn-next swiper-btn-next" aria-label="Следующая группа слайдов"></button>
+                <button class="gallery__swiper-btn swiper-btn gallery__swiper-btn-next swiper-btn-next"
+                  aria-label="Следующая группа слайдов"></button>
               </div>
 
               <div class="swiper-wrapper gallery__swiper-wrapper ">
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_01-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_02-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_03-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_04-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_05-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_06-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_07-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_08-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_09-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_10-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_11-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_12-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_13-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_14-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_15-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_16-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_17-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_18-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_19-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_20-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_21-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_22-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_23-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
-                <div class="swiper-slide gallery__swiper-slide">
-                  <button class="gallery__swiper-slide-btn swiper-slide-btn"></button>
-                  <picture>
+                <button class="swiper-slide gallery__swiper-slide">
+                  <picture class="gallery__swiper-slide-picture">
                     <img src="./img/gallery_24-min.jpg" alt="изображение" class="gallery__swiper-slide-img">
                   </picture>
-                </div>
+                </button>
 
 
 
@@ -638,7 +629,7 @@
 
             <ul class="catalog__header-list" aria-label="выбор художников по странам">
 
-              <li class="catalog__header-item" >
+              <li class="catalog__header-item">
                 <button class="catalog__header-btn" data-path="catalog-one" aria-label="франция ">
                   <img src="./img/flag_01.png" alt="флаг франции" class="catalog__header-btn-flag">
                 </button>
@@ -651,7 +642,8 @@
               </li>
 
               <li class="catalog__header-item">
-                <button class="catalog__header-btn catalog__header-btn-active" data-path="catalog-three" aria-label="италия ">
+                <button class="catalog__header-btn catalog__header-btn-active" data-path="catalog-three"
+                  aria-label="италия ">
                   <img src="./img/flag_03.png" alt="флаг италии" class="catalog__header-btn-flag">
                 </button>
               </li>
@@ -4206,7 +4198,6 @@
                 </article>
               </li>
 
-
               <li class="events__slide swiper-slide">
                 <article class="events__slide-content events__slide-content-05">
                   <small class="events__slide-suptitle">ММАМ<br> с 8 апреля по 20 мая</small>
@@ -4416,12 +4407,12 @@
         <h2 class="projects__heading section-heading">Проекты</h2>
         <div class="projects__description">
           <p class="projects__description-text text">
-            Предварительные выводы: постоянное информационно&#8209;пропагандистское обеспечение нашей деятельности
+            Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности
             однозначно
             фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не
             уникальными данными до степени совершенной неузнаваемости, из&#8209;за чего возрастает их статус
             бесполезности.
-            Прежде всего, постоянное информационно&#8209;пропагандистское
+            Прежде всего, постоянное информационно-пропагандистское
             <button class="projects__description-tooltip-marker" data-template="one" aria-label="всплывающая подсказка">
               <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -4445,7 +4436,8 @@
               </svg>
             </button>
             исключительно в разрезе маркетинговых и финансовых
-            <button class="projects__description-tooltip-marker" data-template="three" aria-label="всплывающая подсказка">
+            <button class="projects__description-tooltip-marker" data-template="three"
+              aria-label="всплывающая подсказка">
               <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M15.5 8C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8Z"
@@ -4458,7 +4450,10 @@
             предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных
             резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными
             данными до степени совершенной неузнаваемости. Подробнее:
-            <a href="#" class="projects__description-link link-focus" aria-label="подробнее о наших проектах">blanchard-&nbsp;art.ru/projects/about</a>
+            <a href="#" class="projects__description-link link-focus"
+              aria-label="подробнее о наших проектах">blanchard-&nbsp;art.ru/projects/about</a>
+
+          </p>
           <div style="display: none;">
             <div id="one" class="projects__description-popup--box">
               <strong class="projects__description-tooltip-popup">Пример современных тенденций - современная методология
@@ -4472,7 +4467,6 @@
               <strong class="projects__description-tooltip-popup">В стремлении повысить качество</strong>
             </div>
           </div>
-          </p>
         </div>
 
         <h3 class="projects__slider-heading">Партнёры проектов:</h3>
@@ -4561,7 +4555,8 @@
                     data-validate-rules="phone" placeholder="Телефон*" class="contacts__form-input">
                 </label>
 
-                <button type="submit" class="contacts__form-btn btn-focus btn" aria-label="Заказать обратный звонок">Заказать</button>
+                <button type="submit" class="contacts__form-btn btn-focus btn"
+                  aria-label="Заказать обратный звонок">Заказать</button>
               </form>
             </div>
 
@@ -4573,7 +4568,8 @@
                   class="contacts__social-btn contacts__social-btn-1" aria-label="ссылка на группу в вотсап">
                 </a>
 
-                <a href="https://t.me/joinchat/Z4KeVTrwczYzZDNi" class="contacts__social-btn contacts__social-btn-2" aria-label="ссылка на группу в телеграм">
+                <a href="https://t.me/joinchat/Z4KeVTrwczYzZDNi" class="contacts__social-btn contacts__social-btn-2"
+                  aria-label="ссылка на группу в телеграм">
                 </a>
 
               </div>
@@ -4689,14 +4685,14 @@
         </a>
       </div>
       <div class="footer__social">
-        <a href="" class="footer__social-btn" aria-label="ссылка вконтакте" >
+        <a href="" class="footer__social-btn" aria-label="ссылка вконтакте">
           <svg width="46" height="46" viewbox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M22.6983 0C10.1628 0 0 10.1623 0 22.6983C0 35.2343 10.1628 45.3966 22.6983 45.3966C35.2338 45.3966 45.3966 35.2343 45.3966 22.6983C45.3966 10.1623 35.2338 0 22.6983 0ZM34.2121 25.1532C35.27 26.1865 36.3893 27.159 37.339 28.2991C37.7598 28.8035 38.1564 29.325 38.4582 29.9116C38.8892 30.748 38.5 31.6652 37.7514 31.7149L33.1012 31.714C31.9002 31.8134 30.9445 31.329 30.1387 30.5079C29.4955 29.8535 28.8987 29.1546 28.2792 28.4779C28.0261 28.2002 27.7595 27.9388 27.4418 27.733C26.8079 27.3206 26.2571 27.4469 25.8939 28.1092C25.5238 28.7831 25.4393 29.5298 25.404 30.2799C25.3534 31.3764 25.0227 31.6629 23.9225 31.7145C21.5716 31.8245 19.341 31.4679 17.2679 30.2827C15.439 29.2373 14.0235 27.7618 12.79 26.0913C10.388 22.8348 8.54849 19.2607 6.89564 15.5839C6.52364 14.7559 6.79579 14.3128 7.70929 14.2956C9.227 14.2664 10.7447 14.2701 12.2624 14.2942C12.8801 14.304 13.2888 14.6574 13.5261 15.2403C14.3463 17.2581 15.3517 19.178 16.6117 20.9586C16.9474 21.4328 17.2902 21.9055 17.7783 22.2404C18.317 22.6101 18.7275 22.4879 18.9816 21.8865C19.1441 21.5043 19.2143 21.0956 19.2495 20.686C19.3703 19.283 19.3847 17.8805 19.1757 16.483C19.0457 15.6085 18.5539 15.0438 17.6821 14.8785C17.2382 14.7944 17.3032 14.63 17.5191 14.3764C17.8939 13.938 18.245 13.6668 18.9468 13.6668L24.2007 13.6659C25.0287 13.8284 25.2145 14.2 25.3269 15.0341L25.3315 20.8727C25.3218 21.1954 25.4936 22.1521 26.0732 22.3635C26.5376 22.5167 26.8441 22.1442 27.1219 21.8503C28.3818 20.5132 29.2795 18.9351 30.0834 17.3018C30.4382 16.5815 30.7443 15.8361 31.0415 15.0893C31.2626 14.5371 31.6062 14.2654 32.2295 14.2747L37.2888 14.2808C37.4379 14.2808 37.5893 14.2822 37.737 14.3077C38.5897 14.4535 38.8233 14.8204 38.5595 15.6522C38.1443 16.9591 37.3376 18.0476 36.549 19.139C35.7038 20.3075 34.8024 21.4351 33.9655 22.6087C33.1964 23.6815 33.2572 24.2216 34.2121 25.1532Z"
               fill="#CACACA" />
           </svg>
         </a>
-        <a href="" class="footer__social-btn" aria-label="ссылка инстаграм" >
+        <a href="" class="footer__social-btn" aria-label="ссылка инстаграм">
           <svg width="46" height="46" viewbox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0)">
               <path
@@ -4716,7 +4712,7 @@
             </defs>
           </svg>
         </a>
-        <a href="" class="footer__social-btn" aria-label="ссылка фейсбук" >
+        <a href="" class="footer__social-btn" aria-label="ссылка фейсбук">
           <svg width="47" height="46" viewbox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M23.4915 0.0908203C11.0074 0.0908203 0.793213 10.3233 0.793213 22.9259C0.793213 34.3206 9.10078 43.7782 19.9506 45.4874V29.5348H14.1852V22.9259H19.9506V17.8894C19.9506 12.1692 23.3326 9.02429 28.5305 9.02429C31.0046 9.02429 33.5922 9.45729 33.5922 9.45729V15.0863H30.7322C27.9176 15.0863 27.0324 16.8411 27.0324 18.6414V22.9259H33.3425L32.3211 29.5348H27.0324V45.4874C32.3811 44.6393 37.2516 41.8993 40.7647 37.7619C44.2778 33.6246 46.2019 28.3626 46.1898 22.9259C46.1898 10.3233 35.9755 0.0908203 23.4915 0.0908203Z"
@@ -4729,17 +4725,7 @@
 
 
 
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
-  <script src="./js/inputmask.min.js"></script>
-  <script src="./js/just-validate.min.js"></script>
-  <script src="./js/tippy-core.js"></script>
-  <script src="./js/tippy.js"></script>
-  <script src="./js/jquery-1.12.4.js"></script>
-  <script src="./js/jquery-ui.js"></script>
-  <script src="./js/choices.min.js"></script>
-  <script src="./js/swiper-bundle.min.js"></script>
-  <script src="./js/simplebar.min.js"></script>
-  <script src="./js/main.js"></script>
+
 </body>
 
 </html>
