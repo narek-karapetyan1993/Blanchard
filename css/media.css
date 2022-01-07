@@ -89,7 +89,7 @@
     height: 768px;
     opacity: 0;
     transform: translateX(-100%);
-    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 
   .header__nav::after {
@@ -185,8 +185,8 @@
 
   .header__search-form {
     transform: translate(150%, 0);
-    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out 0.2s;
   }
+
   .header__form-active {
     transform: translate(0, 0);
     opacity: 1;
@@ -266,16 +266,11 @@
   }
 
   .catalog__accordion-content {
-    padding-right: 20px;
-    flex: 0 1 52.5%;
+    flex: 0 1 47.5%;
   }
 
   .ui-accordion .ui-accordion-content {
     overflow: hidden;
-  }
-
-  .catalog__accordion-content-info {
-    padding-right: 30px;
   }
 
   .catalog__accordion-triger {
@@ -459,7 +454,7 @@
   .gallery__filter {
     height: 100%;
     flex: 1 1 100%;
-    padding: 0;
+    margin: 0;
   }
 
   .gallery__filter-formBlock {
@@ -522,21 +517,20 @@
   }
 
   .catalog__accordion-content {
-    padding-right: 0;
+    margin: 0;
   }
 
   .catalog__accordion-content-img {
-    padding: 31.4%;
-    background-size: 100% auto;
     margin-bottom: 30px;
+  }
+
+  .catalog__accordion-content-img picture {
+    display: flex;
+    justify-content: center;
   }
 
   .catalog__accordion-content-date {
     margin-bottom: 5px;
-  }
-
-  .catalog__accordion-content-info {
-    padding-right: 0;
   }
 
   .events__slide {
@@ -712,7 +706,7 @@
     justify-content: center;
   }
 
-  .gallery__swiper-slide-picture  {
+  .gallery__swiper-slide-picture {
     width: auto;
   }
 
@@ -762,10 +756,11 @@
     margin-bottom: 38px;
   }
 
-  .events__slide:not(:nth-child(2)) .events__slide-content .events__slide-heading {
+  .events__slide:not(:nth-child(2))
+    .events__slide-content
+    .events__slide-heading {
     margin-bottom: 5px;
   }
-
 
   .events__wrapper .events__slide-active {
     display: flex;
@@ -805,7 +800,7 @@
     display: none;
   }
 
-  .edition__swiper-wrapper {
+  .editions__swiper-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -842,7 +837,7 @@
   }
 
   .contacts {
-    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
   .contacts__address-block {
@@ -1110,15 +1105,11 @@
   }
 
   .catalog__accordion-content-img {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   .catalog__accordion-content-name {
     margin-bottom: 14px;
-  }
-
-  .catalog__accordion-content-date {
-    margin-bottom: 8px;
   }
 
   .catalog__accordion-content-info {

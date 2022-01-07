@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
     a11y: {
       nextSlideMessage: "Следующая группа картин",
       prevSlideMessage: "Предыдущая группа картин",
-      slideLabelMessage: "'{{index}} из {{slidesLength}} картин'"
+      slideLabelMessage: "'{{index}} из {{slidesLength}} картин'",
     },
 
     keyboard: {
@@ -256,9 +256,6 @@ document.addEventListener("DOMContentLoaded", function () {
       collapsible: true,
       icons: false,
       heightStyle: "content",
-      animate: {
-        easing: "linear",
-      },
     });
   });
 
@@ -297,21 +294,40 @@ document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelectorAll(".catalog__accordion-triger-name-link")
           .forEach(function (trigerBtn) {
-            trigerBtn.classList.remove(
-              "catalog__accordion-triger-name-link-active"
-            );
+            let perBtn = trigerBtn.parentNode;
+            let perBtnItem = perBtn.parentNode;
+            let perBtnList = perBtnItem.parentNode;
+            let perTrigerItem = perBtnList.parentNode;
+            let perTrigerList = perTrigerItem.parentNode;
+
+            if (
+              perTrigerList.parentNode.classList.contains(
+                "catalog__accordion-active"
+              )
+            ) {
+              trigerBtn.classList.remove(
+                "catalog__accordion-triger-name-link-active"
+              );
+            }
           });
 
-        event.target.classList.add(
-          "catalog__accordion-triger-name-link-active"
-        );
+        trigerBtn.classList.add("catalog__accordion-triger-name-link-active");
 
         document
           .querySelectorAll(".catalog__accordion-content-item")
           .forEach(function (catalogContent) {
-            catalogContent.classList.remove(
-              "catalog__accordion-content-item-active"
-            );
+            let perContentItem = catalogContent.parentNode;
+            let perContentList = perContentItem.parentNode;
+
+            if (
+              perContentList.parentNode.classList.contains(
+                "catalog__accordion-active"
+              )
+            ) {
+              catalogContent.classList.remove(
+                "catalog__accordion-content-item-active"
+              );
+            }
           });
 
         document
@@ -319,6 +335,15 @@ document.addEventListener("DOMContentLoaded", function () {
           .classList.add("catalog__accordion-content-item-active");
       });
     });
+
+  $(document).ready(function () {
+    $("#catalog").on("click", "a", function (event) {
+      event.preventDefault();
+      let id = $(this).attr("href"),
+        top = $(id).offset().top;
+      $("body,html").animate({ scrollTop: top }, 1500);
+    });
+  });
 
   let eventsBtn = document.querySelector(".events__content-btn");
   const slider = document.querySelector(".events__swiper");
@@ -425,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   publicationCheck();
 
-  const editionSlider = document.querySelector(".edition__swiper-container");
+  const editionSlider = document.querySelector(".editions__swiper-container");
   let editionsSwiper;
 
   function desctopSlider() {
@@ -434,16 +459,16 @@ document.addEventListener("DOMContentLoaded", function () {
         a11y: {
           nextSlideMessage: "Следующая группа изданий",
           prevSlideMessage: "Предыдущая группа изданий",
-          slideLabelMessage: "'{{index}} из {{slidesLength}} изданий'"
+          slideLabelMessage: "'{{index}} из {{slidesLength}} изданий'",
         },
 
         navigation: {
-          nextEl: ".edition__swiper-btn-next",
-          prevEl: ".edition__swiper-btn-prev",
+          nextEl: ".editions__swiper-btn-next",
+          prevEl: ".editions__swiper-btn-prev",
         },
 
         pagination: {
-          el: ".edition__swiper-pagination",
+          el: ".editions__swiper-pagination",
           type: "fraction",
         },
 
@@ -524,7 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
     a11y: {
       nextSlideMessage: "Следующая группа партнёров",
       prevSlideMessage: "Предыдущая группа партнёров",
-      slideLabelMessage: "'{{index}} из {{slidesLength}} партнёров'"
+      slideLabelMessage: "'{{index}} из {{slidesLength}} партнёров'",
     },
 
     navigation: {
@@ -575,32 +600,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
   im.mask(selector);
 
-  new JustValidate(".contacts__form", {
-    rules: {
-      name: {
-        required: true,
-        minLength: 3,
-        maxLength: 15,
-      },
+  let validateForms = function (contactForm) {
+    new window.JustValidate(contactForm, {
+      rules: {
+        name: {
+          required: true,
+          minLength: 3,
+          maxLength: 15,
+        },
 
-      phone: {
-        required: true,
-        function: (nama, value) => {
-          const phone = selector.inputmask.unmaskedvalue();
-          return Number(phone) && phone.length === 10;
+        phone: {
+          required: true,
+          function: (nama, value) => {
+            const phone = selector.inputmask.unmaskedvalue();
+            return Number(phone) && phone.length === 10;
+          },
         },
       },
-    },
+      submitHandler: function (form) {
+        let formData = new FormData(form);
 
-    messages: {
-      name: {
-        required: "обязательное поле",
-        minLength: "Мин. количество символов: 3.",
-        maxLength: "Макс. количество символов: 15.",
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              let sendForm = document.querySelector(".contacts__send-form");
+              let popupNotice = setInterval(() => {
+                sendForm.style.display = "flex";
+                sendForm.style.opacity = "1";
+              }, 500);
+              setTimeout(() => {
+                sendForm.style.display = "none";
+                sendForm.style.opacity = "0";
+                clearInterval(popupNotice);
+              }, 2000);
+              console.log("Отправлено");
+            }
+          }
+        };
+
+        xhr.open("POST", "mail.php", true);
+        xhr.send(formData);
+
+        form.reset();
       },
-      phone: "Недопустимый формат",
-    },
-  });
+      messages: {
+        name: {
+          required: "обязательное поле",
+          minLength: "Мин. количество символов: 3.",
+          maxLength: "Макс. количество символов: 15.",
+        },
+        phone: "Недопустимый формат",
+      },
+    });
+  };
+
+  validateForms(".contacts__form");
 
   ymaps.ready(init);
   function init() {
@@ -622,5 +678,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     myMap.geoObjects.add(myPlacemark);
   }
-
 });
