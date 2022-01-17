@@ -115,12 +115,25 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector(".header__burger")
     .addEventListener("click", function () {
+      let heroHeight = document.querySelector(".hero").offsetHeight;
+      let heroTop = document.querySelector(".hero").offsetTop;
+      let navHeight = heroHeight - Math.abs(heroTop);
+      let headerLogin = document.querySelector(".header__logIn");
+
+      document.querySelector(".header__nav").style.height = navHeight + "px";
+
       document
         .querySelector(".header__nav")
         .classList.add("header__nav-active");
       document
         .querySelector(".header__nav-close")
         .classList.add("header__nav-close-active");
+      if (window.innerWidth <= 650) {
+        headerLogin.style.bottom = (navHeight - 70) * -1 + "px";
+      } else {
+        headerLogin.style.bottom = (navHeight - 167) * -1 + "px";
+      }
+
       document
         .querySelector(".header__logIn")
         .classList.add("header__logIn-active");
