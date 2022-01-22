@@ -1964,7 +1964,7 @@ input[type="search"]::-webkit-search-cancel-button {
   bottom: 0;
   position: absolute;
   width: 100%;
-  height: 1505px;
+  height: 2505px;
   justify-content: center;
   align-items: center;
   z-index: 100;
