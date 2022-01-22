@@ -367,8 +367,9 @@
 
         <div class="header__search header__search-desktop">
           <div class="header__search-container">
-            <div class="header__form-container">
-              <button class="header__search-btn">
+
+            <form action="/" class="header__search-form">
+              <button type="submit" class="header__search-form-btn" aria-label="поиск по сайту">
                 <svg width="23" height="22" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="6.8678" height="1.71695"
                     transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white" />
@@ -377,34 +378,13 @@
                     fill="white" />
                 </svg>
               </button>
-              <form action="/" class="header__search-form">
-                <button type="submit" class="header__search-form-btn" aria-label="поиск по сайту">
-                  <svg width="23" height="22" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="6.8678" height="1.71695"
-                      transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"
-                      fill="white" />
-                  </svg>
-                </button>
-                <input class="header__search-form-input" type="text" placeholder="Поиск по сайту">
-                <button type="button" class="header__search-form-btn-x">
-                  <svg width="29" height="29" viewbox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.7">
-                      <rect width="37.2801" height="3.72801"
-                        transform="matrix(0.707093 0.707121 -0.707093 0.707121 2.63867 0)" fill="white" />
-                      <rect width="37.2801" height="3.72801"
-                        transform="matrix(0.707093 -0.707121 0.707093 0.707121 -0.000976562 26.3615)" fill="white" />
-                    </g>
-                  </svg>
-
-                </button>
-              </form>
-            </div>
+              <input class="header__search-form-input" type="text" placeholder="Поиск по сайту">
+            </form>
 
           </div>
-        </div>
 
+        </div>
+        
       </div>
 
     </div>
@@ -5042,7 +5022,7 @@
               <div class="swiper-wrapper editions__swiper-wrapper">
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_01.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_01.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Искусство цвета</span>
                   <span class="editions__swiper-slide-price">620 руб</span>
                   <span class="editions__swiper-slide-author">Иттен, Иоханнес</span>
@@ -5050,7 +5030,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_02.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_02.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Типографика</span>
                   <span class="editions__swiper-slide-price">2 450 руб</span>
                   <span class="editions__swiper-slide-author">Рудер, Эмиль</span>
@@ -5058,7 +5038,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_03.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_03.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Книга про буквы</span>
                   <span class="editions__swiper-slide-price">2 200 руб</span>
                   <span class="editions__swiper-slide-author">Гордон, Юрий</span>
@@ -5066,7 +5046,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_04.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_04.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Николай Ильин</span>
                   <span class="editions__swiper-slide-price">1 100 руб</span>
                   <span class="editions__swiper-slide-author">Кричевский, Владимир</span>
@@ -5074,7 +5054,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_05.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_05.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Модульные сетки в граф...</span>
                   <span class="editions__swiper-slide-price">1 450 руб</span>
                   <span class="editions__swiper-slide-author">Мюллер-Брокманн, Йозеф</span>
@@ -5082,7 +5062,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_06.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_06.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Эволюция графических ст...</span>
                   <span class="editions__swiper-slide-price">3 200 руб</span>
                   <span class="editions__swiper-slide-author">Хеллер, Чваст</span>
@@ -5090,7 +5070,7 @@
                 </div>
 
                 <div class="swiper-slide editions__swiper-slide">
-                  <img class="editions__swiper-slide-img" src="./img/editions_07.jpg" alt="">
+                  <img class="editions__swiper-slide-img" src="./img/editions_07.jpg" alt="обложка книги">
                   <span class="editions__swiper-slide-title">Искусство и визуальное в...</span>
                   <span class="editions__swiper-slide-price">2 200 руб</span>
                   <span class="editions__swiper-slide-author">Арнхейм, Рудольф</span>
